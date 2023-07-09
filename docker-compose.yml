@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  flask-app:
+    container_name: flask-app
+    build: app
+    restart: always
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./app:/app
+    networks:
+      - backend
+
+  mysql-db:
+    container_name: mysql-db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: course_enrollment
+    ports:
+      - '32000:3306'
+    volumes:
+      - ./database:/var/lib/mysql
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+volumes:
+  app:
+  database:
