@@ -15,9 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh '''sh \'\'\'echo $USER
-\'\'\'
-        sh \'docker build -t aishyadav/mini-project01:latest .\''''
+        sh 'sh \'docker build -t aishyadav/mini-project01:latest .\''
       }
     }
 
