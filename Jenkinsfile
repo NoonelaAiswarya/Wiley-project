@@ -7,7 +7,7 @@ pipeline {
       }
     }
 
-    stage('Test') {
+    stage('Installing dependencies') {
       steps {
         sh 'cd app && pip3 install -r requirements.txt'
       }
@@ -26,6 +26,12 @@ pipeline {
       }
       steps {
         sh 'docker login  -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD'
+      }
+    }
+
+    stage('Push') {
+      steps {
+        sh 'docker push aishyadav/mini-project01:latest'
       }
     }
 
