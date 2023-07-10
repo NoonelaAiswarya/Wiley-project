@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t aishyadav/mini-project01:latest .'
+        sh 'docker build -t aishyadav/mini-project01:latest /var/lib/jenkins/workspace/Wiley-project_main/app'
       }
     }
 
