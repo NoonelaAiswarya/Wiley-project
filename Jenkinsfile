@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        sh 'cd app && pip3 install -r requirements.txt && pip3 install nose && nosetests --with-xunit'
+      }
+    }
+
   }
 }
