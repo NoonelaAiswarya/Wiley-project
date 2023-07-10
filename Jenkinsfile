@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker-compose up'
+        sh 'docker build -t aishyadav/mini-project01:latest .'
       }
     }
 
