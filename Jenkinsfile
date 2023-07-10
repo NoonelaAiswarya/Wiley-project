@@ -15,7 +15,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'docker build -t aishyadav/mini-project01:latest .'
+        sh 'docker-compose up -d --build --remove-orphans'
       }
     }
 
