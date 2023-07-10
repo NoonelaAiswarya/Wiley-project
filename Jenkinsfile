@@ -21,13 +21,15 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh '''withCredentials([usernamePassword(credentialsId: \'dockerhubcredentials\', usernameVariable: \'DOCKERHUB_USERNAME\', passwordVariable: \'DOCKERHUB_PASSWORD\')]) {
-  sh \'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD\'
+        sh '''withCredentials([usernamePassword(credentialsId: \'dockerhubcredentials\', usernameVariable: \'DOCKERHUB_USERNAME\', passwordVariable: \'DOCKERHUB_PASSWORD\')]) 
+
+{
+  sh \'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD\';
   sh \'docker push aishyadav/mini-project01:latest\'
 }
 '''
-        }
       }
-
     }
+
   }
+}
